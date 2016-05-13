@@ -1,2 +1,2 @@
-var app = require('app');
-app.run();
+var app = require('./core/app');
+    app.run();

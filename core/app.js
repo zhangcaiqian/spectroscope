@@ -5,7 +5,7 @@ var dirname = __dirname;
 var core = {};
 //取得配置文件列表
 function getConfList(){
-  return ( fs.readdirSync(dirname + '/conf') );
+  return ( fs.readdirSync(dirname + '/../conf') );
 }
 
 function createExpress(){
@@ -17,7 +17,7 @@ function startServer(confList){
     confList.forEach(function(item){
       var app = createExpress();
       item = item.replace('.js', '');
-      var config = require('./conf/' + item);
+      var config = require('../conf/' + item);
       app.get('/', function(req, res){
         res.send('hello hello');
       });
