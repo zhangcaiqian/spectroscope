@@ -1,5 +1,6 @@
 var express = require('express');
 var fs = require('fs');
+var path = require('path');
 var dirname = __dirname;
 
 //取得配置文件列表
@@ -16,16 +17,17 @@ function startServer(confList){
     confList.forEach(function(item){
       var app = createExpress();
       item = item.replace('.js', '');
-      var config = require('./conf' + item);
-      if(config.viewEngine){
-        
-      }
-
+      var config = require('./conf/' + item);
+      app.get('/', function(req, res){
+        res.send('hello hello');
+      });console.log(config);
+      config.port && app.listen(config.port);
+      console.log('server start at port' + config.port);
     });
 }
 
 function run(){
-  console.log(fileName);
+  startServer(getConfList());
 }
 
 run();
