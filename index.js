@@ -20,9 +20,10 @@ function startServer(confList){
       var config = require('./conf/' + item);
       app.get('/', function(req, res){
         res.send('hello hello');
-      });console.log(config);
+      });
+      console.log(config);
       config.port && app.listen(config.port);
-      console.log('server start at port' + config.port);
+      console.log(item + ' start at port ' + config.port);
     });
 }
 
