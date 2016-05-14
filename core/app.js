@@ -4,12 +4,20 @@ var path = require('path');
 var dirname = __dirname;
 var core = {};
 //取得配置文件列表
-function getConfList(){
+function getAppQuene(){
   return ( fs.readdirSync(dirname + '/../conf') );
 }
-
+//返回 express 实例
 function createExpress(){
   return express();
+}
+//设置模板引擎
+function setViewsEngine(){
+
+}
+//设置路由
+function setAppRoutes(){
+
 }
 //启动所有服务
 function startServer(confList){
@@ -28,7 +36,7 @@ function startServer(confList){
 }
 
 core.run = function(){
-  startServer(getConfList());
+  startServer(getAppQuene());
 }
 
 module.exports = core;
